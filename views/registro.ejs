@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="../public/css/registro.css">
+    <link rel="shortcut icon" href="../public/img/logo.png" type="image/x-icon">
+</head>
+<body>
+    <div id="sidemenu" class="menu-collapsed">
+        <div id="header">
+            <div id="title"><span>ServiTools</span></div>
+            <div id="menu-btn">
+                <div class="btn-burger"></div>
+                <div class="btn-burger"></div>
+                <div class="btn-burger"></div>
+            </div>
+        </div>
+        <!-- Items -->
+        <div id="menu-items">
+            <div class="item">
+                <a href="/">
+                    <div class="icon"><img src="../public/img/logo.png" alt=""></div>
+                    <div class="title"><span>Inicio</span></div>
+                </a>
+            </div>
+            <div class="item separator"></div>
+                <div class="item">
+                        <a href="/registro">
+                            <div class="icon"><img src="../public/img/referir.png" alt=""></div>
+                            <div class="title"><span>Registrarse</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+                <div class="item">
+                        <a href="/login">
+                            <div class="icon"><img src="../public/img/contrasena.png" alt=""></div>
+                            <div class="title"><span>Ingresar</span></div>
+                        </a>
+                </div>
+        </div>
+    </div>
+    <div class="formu">
+        <form action="/registro" method="post" class="form">
+            <h2 class="form__title">FORMULARIO DE REGISTRO</h2>
+            <div class="form__container"></div>                    
+    
+                <div class="form__group">                    
+                    <input name="nombres" type="text" id="nombre" class="form__input" placeholder="Nombres:" required>
+                    <span class="form_line"></span>
+                </div>
+    
+                <div class="form__group">                    
+                    <input name="apellidos" type="text" id="apellido" class="form__input" placeholder="Apellidos:" required>
+                    <span class="form_line"></span>
+                </div>
+                
+                <div class="form__group">    
+                    <input name="usuario" type="text" id="usuario" class="form__input" placeholder="Usuario:" required>
+                </div>
+                
+                <div class="form__group">    
+                    <input name="contrasena" type="password" id="Contraseña" class="form__input" placeholder="Contraseña:" required>
+                    <span class="form_line"></span>
+                </div>    
+    
+                <div class="form__group">   
+                    <input name="correo" type="email" id="Correo" class="form__input" placeholder="Correo:" required>
+                    <span class="form_line"></span>
+                </div> 
+                <div class="form_group">          
+                    <input type="submit" class="form__submit" value="ENVIAR">   
+                </div>            
+            </div>   
+    </div>
+    </form>
+    <div class="clear">
+        <hr>
+    </div>
+    <footer>
+        <div class="container">
+            <p>copyright 2023 &#169 ServiTools</p>
+        </div>
+    </footer>
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('sidemenu');
+
+        btn.addEventListener('click', e =>{
+            menu.classList.toggle('menu-expanded');
+            menu.classList.toggle('menu-collapsed');
+        })
+
+        document.querySelector('body').classList.toggle('body-expanded');
+    </script>
+
+</body>
+</html>

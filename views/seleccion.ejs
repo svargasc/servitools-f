@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="public/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../public/css/seleccion.css">
+    <title>Añadir productos</title>
+</head>
+
+<body>
+    <div id="sidemenu" class="menu-collapsed">
+        <div id="header">
+            <div id="title"><span>ServiTools</span></div>
+            <div id="menu-btn">
+                <div class="btn-burger"></div>
+                <div class="btn-burger"></div>
+                <div class="btn-burger"></div>
+            </div>
+        </div>
+        <!-- Items -->
+        <div id="menu-items">
+            <%if (usuario) { %>
+                <div class="item">
+                        <a href="/seleccion">
+                            <div class="icon"><img src="../public/img/configuraciones.png" alt=""></div>
+                            <div class="title"><span>Opciones</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %> 
+            <%if (usuario) { %>
+                <div class="item">
+                        <a href="/upload">
+                            <div class="icon"><img src="../public/img/caja.png" alt=""></div>
+                            <div class="title"><span>Productos</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %> 
+            <%if (usuario) { %>
+                <div class="item">
+                        <a href="/">
+                            <div class="icon"><img src="../public/img/usuario.png" alt=""></div>
+                            <div class="title"><span><%=  usuario  %></span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %> 
+            <%if (usuario) { %>
+                <div class="item">
+                        <a class="nav-link" href="/logout">
+                            <div class="icon"><img src="../public/img/cerrar-sesion.png" alt=""></div>
+                            <div class="title"><span>Salir</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %>
+        </div>
+    </div>
+    <section class="section1">
+        <div class="container">
+            <div class="productos">
+                <img src="../public/img/logo_añadirProductos.png">
+                <button><a href="/formularioSubir">Añadir productos</a></button>
+            </div>
+            <div class="inventario">
+                <img src="../public/img/logo_inventario.png">
+                <button><a href="/indexDos">Inventario</a></button>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <footer>
+        <div class="container">
+            <p>copyright 2023 &#169 ServiTools</p>
+        </div>
+    </footer>
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('sidemenu');
+
+        btn.addEventListener('click', e =>{
+            menu.classList.toggle('menu-expanded');
+            menu.classList.toggle('menu-collapsed');
+        })
+
+        document.querySelector('body').classList.toggle('body-expanded');
+    </script>
+</body>
+
+</html>

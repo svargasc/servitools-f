@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="../public/css/productos.css">
+</head>
+
+<body>
+    <div id="sidemenu" class="menu-collapsed">
+        <div id="header">
+            <div id="title"><span>ServiTools</span></div>
+            <div id="menu-btn">
+                <div class="btn-burger"></div>
+                <div class="btn-burger"></div>
+                <div class="btn-burger"></div>
+            </div>
+        </div>
+        <!-- Items -->
+        <div id="menu-items">
+            <%if (usuario) { %>
+                <div class="item">
+                        <a href="/">
+                            <div class="icon"><img src="../public/img/usuario.png" alt=""></div>
+                            <div class="title"><span><%=  usuario  %></span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %> 
+            <%if (usuario) { %>
+                <div class="item">
+                        <a class="nav-link" href="/logout">
+                            <div class="icon"><img src="../public/img/cerrar-sesion.png" alt=""></div>
+                            <div class="title"><span>Salir</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %>
+                <div class="item">
+                        <a href="/registro">
+                            <div class="icon"><img src="../public/img/referir.png" alt=""></div>
+                            <div class="title"><span>Registrarse</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+                <div class="item">
+                        <a href="/login">
+                            <div class="icon"><img src="../public/img/contrasena.png" alt=""></div>
+                            <div class="title"><span>Ingresar</span></div>
+                        </a>
+                </div>
+        </div>
+    </div>
+    <section class="section1">
+        <div class="buscador">
+            <span><a href="/carrito"><img src="../public/img/lista-de-la-compra.png" alt=""></a></span>
+            <div class="to">
+                <img src="../public/img/lupa.png" alt="">
+            <input type="text" name="buscador" id="buscador" placeholder="Buscar:">
+            </div>
+        </div>
+        <div class="container">
+            <% for (let i = 0; i < images.length; i++) { %>
+                <div class="bord__card producto">
+                  <div class="card">
+                    <h2><%= images[i].nombre %></h2>
+                    <button class="open__modal" data-modal-index="<%= i %>">
+                      <img src="public/img/<%= images[i].imgages %>" alt="<%= images[i].nombre %>">
+                    </button>
+                    <h2>$<%= images[i].price %></h2>
+                    <form action="/carrito/agregar" method="POST">
+                        <input type="hidden" name="productoId" value="<%= images[i].id %>">
+                        <button type="submit" class="añadir">Añadir</button>
+                    </form>
+                  </div>
+                </div>
+              <% } %>                  
+        </div>
+                 
+    </section>
+    
+    <section class="modales">
+        <% for (let i=0; i < images.length; i++) { %>
+            <div class="modal">
+                <div class="modal__container">
+                    <h1>
+                        <%=images[i].nombre%>
+                    </h1>
+                    <div class="modal__row">
+                        <img src="public/img/<%=images[i].imgages%>" alt="<%= images%>">
+                        <div class="modal__text">
+                            <p>
+                                <%= images[i].details %>
+                            </p>
+                            <p class="price">Precio: $<%= images[i].price %>
+                            </p>
+                            <div class="modal__close">
+                                <a>✘</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%} %>
+    </section>
+    
+    <div class="clear">
+        <hr>
+    </div>
+    <footer>
+        <div class="container">
+            <p>copyright 2023 &#169 ServiTools</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("keyup", e => {
+
+if (e.target.matches("#buscador")) {
+
+    if (e.key === "Escape") e.target.value = ""
+
+    document.querySelectorAll(".producto").forEach(fruta => {
+
+        fruta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+            ? fruta.classList.remove("filtro")
+            : fruta.classList.add("filtro")
+    })
+
+}
+})
+
+
+const openModalButtons = document.querySelectorAll('.open__modal');
+        const modals = document.querySelectorAll('.modal');
+        const closeModalButtons = document.querySelectorAll('.modal__close');
+      
+        openModalButtons.forEach((button) => {
+          button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modalIndex = button.getAttribute('data-modal-index');
+            modals[modalIndex].classList.add('modal--show');
+          });
+        });
+      
+        closeModalButtons.forEach((button) => {
+          button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modal = button.closest('.modal');
+            modal.classList.remove('modal--show');
+          });
+        });
+    </script>
+</body>
+
+</html>

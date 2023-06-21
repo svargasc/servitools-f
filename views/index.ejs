@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/navbar.css">
+</head>
+<body>
+    <div id="sidemenu" class="menu-collapsed">
+        <div id="header">
+            <div id="title"><span>ServiTools</span></div>
+            <div id="menu-btn">
+                <div class="btn-burger"></div>
+                <div class="btn-burger"></div>
+                <div class="btn-burger"></div>
+            </div>
+        </div>
+        <!-- Items -->
+        <div id="menu-items">
+            <%if (usuario) { %>
+                <div class="item">
+                        <a href="/seleccion">
+                            <div class="icon"><img src="../public/img/configuraciones.png" alt=""></div>
+                            <div class="title"><span>Opciones</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %> 
+            <%if (usuario) { %>
+                <div class="item">
+                        <a href="/">
+                            <div class="icon"><img src="../public/img/usuario.png" alt=""></div>
+                            <div class="title"><span><%=  usuario  %></span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %> 
+            <%if (usuario) { %>
+                <div class="item">
+                        <a class="nav-link" href="/logout">
+                            <div class="icon"><img src="../public/img/cerrar-sesion.png" alt=""></div>
+                            <div class="title"><span>Salir</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %>
+            
+            <%if (!usuario) { %>
+                <div class="item">
+                        <a href="/registro">
+                            <div class="icon"><img src="../public/img/referir.png" alt=""></div>
+                            <div class="title"><span>Registrarse</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %>
+            <%if (!usuario) { %>
+                <div class="item">
+                        <a href="/login">
+                            <div class="icon"><img src="../public/img/contrasena.png" alt=""></div>
+                            <div class="title"><span>Ingresar</span></div>
+                        </a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    
+    <section class="section1">
+        <div class="im">
+            <img src="../public/img/logo.png" class="logoImg" alt="">
+        </div>
+        <div class="container">
+            <div class="section1_text">
+                <h1>BIENVENIDOS A SERVITOOLS</h1>
+                <h2>Herramienta de AutoServicio</h2>
+                <p>perfecta para tu negocio</p>
+            </div>
+            <div class="section1_buttons">
+                <button class="button1_sec1"><strong>ACERCA DEL INVENTARIO</strong></button>
+                <button class="button2_sec1"><strong>ACERCA DE SERVITOOLS</strong></button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="modal">
+        <div class="modal__container">           
+            <h1>ACERCA DE SERVITOOLS</h1>
+            <p>Una Herramienta Práctica, Que
+                Facilitara El Mecanismo De Atención
+                Al Cliente En Bares Y Cafe, También
+                Hará Que Tu Negocio Sea Más
+                Eficiente.
+            </p>
+            <div class="modal__img">
+                <img class="img__modal" src="../public/img/section2_img1">
+                <img class="img__modal" src="../public/img/section2_img2">
+                <img class="img__modal" src="../public/img/section2_img3">
+            </div>
+            <a class="modal__close">✘</a>            
+        </div>
+    </section>
+
+    <section class="modal1">
+        <div class="modal__container1">           
+            <h1>ACERCA DEL INVENTARIO</h1>
+            <p>Contamos Con Un Inventario Digital,
+                Que Funciona A Tiempo Real,
+                En El Que Podras Gestionar Todos
+                Los Recursos Con Los Que Cuenta
+                Tu Negocio, Esta Diseñado Para
+                Eliminar Recursos A Medida Que
+                Estos Se Consumen O Son Utilizados,
+                Asi Mismo Añadir Recursos
+                Que Fueron Adquiridos Ultimamente.
+            </p>
+            <a class="modal__close1">✘</a>            
+        </div>
+    </section>
+    <div class="clear">
+        <hr>    
+    </div>
+    <footer>
+        <div class="container">
+            <p>copyright 2023 &#169 ServiTools</p>
+        </div>
+    </footer>
+    <!-- <div id="main-container">Hola ServiTools</div> -->
+
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('sidemenu');
+
+        btn.addEventListener('click', e =>{
+            menu.classList.toggle('menu-expanded');
+            menu.classList.toggle('menu-collapsed');
+        })
+
+        document.querySelector('body').classList.toggle('body-expanded');
+
+        //modal-botones
+        const openModal = document.querySelector('.button2_sec1');
+    const modal = document.querySelector('.modal');
+    const closeModal = document.querySelector('.modal__close');
+
+    openModal.addEventListener('click', (e)=>{
+        e.preventDefault();
+        modal.classList.add('modal--show');
+    })
+
+    closeModal.addEventListener('click', (e)=>{
+        e.preventDefault();
+        modal.classList.remove('modal--show');
+    })
+
+    const openModal1 = document.querySelector('.button1_sec1');
+    const modal1 = document.querySelector('.modal1');    
+    const closeModal1 = document.querySelector('.modal__close1');
+
+    openModal1.addEventListener('click', (e)=>{
+        e.preventDefault();
+        modal1.classList.add('modal--show1');
+    })
+
+    closeModal1.addEventListener('click', (e)=>{
+        e.preventDefault();
+        modal1.classList.remove('modal--show1');
+    })
+    </script>
+</body>
+</html>

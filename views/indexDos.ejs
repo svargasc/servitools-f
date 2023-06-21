@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <title>CRUD</title>
+  <link rel="stylesheet" href="../public/css/inventario.css">
+</head>
+
+<body>
+<div class="back">
+  <div class="container">
+    <div id="sidemenu" class="menu-collapsed">
+      <div id="header">
+          <div id="title"><span>ServiTools</span></div>
+          <div id="menu-btn">
+              <div class="btn-burger"></div>
+              <div class="btn-burger"></div>
+              <div class="btn-burger"></div>
+          </div>
+      </div>
+      <!-- Items -->
+      <div id="menu-items">
+          <%if (usuario) { %>
+              <div class="item">
+                      <a href="/seleccion">
+                          <div class="icon"><img src="../public/img/configuraciones.png" alt=""></div>
+                          <div class="title"><span>Opciones</span></div>
+                      </a>
+              </div>
+              <div class="item separator"></div>
+          <% } %> 
+          <%if (usuario) { %>
+              <div class="item">
+                      <a href="/">
+                          <div class="icon"><img src="../public/img/usuario.png" alt=""></div>
+                          <div class="title"><span><%=  usuario  %></span></div>
+                      </a>
+              </div>
+              <div class="item separator"></div>
+          <% } %> 
+          <%if (usuario) { %>
+            <div class="item">
+                    <a href="/logout">
+                        <div class="icon"><img src="../public/img/cerrar-sesion.png" alt=""></div>
+                        <div class="title"><span><%=  usuario  %></span></div>
+                    </a>
+            </div>
+            <div class="item separator"></div>
+        <% } %> 
+      </div>
+    </div>
+        <h1>INVENTARIO</h1>
+        <div class="cont">
+          <table class="table>">
+            <thead>
+                <tr>
+                  <th class="col-borde" scope="col"><img src="../public/img/añadir.png"  class="open__modal" width="40px" alt=""></th>
+                  <th scope="col">ID</th>
+                  <th scope="col">NOMBRE</th>
+                  <th scope="col">STOCK</th>
+                  <th scope="col">ACCIONES</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% results.forEach((nombre)=>{ %>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <%= nombre.id %>
+                    </td>
+                    <td>
+                      <%= nombre.nombre %>
+                    </td>
+                    <td>
+                      <%= nombre.stock %>
+                    </td>
+                    <td>
+                      <!-- <button class="open__modal1"><img src="../public/img/editar.png" alt="editar"></button> -->
+                      <a class="open__modal1"><img src="../public/img/editar.png" alt="editar"></a>
+                      <a href="/delete/<%= nombre.id %>" class=""><img src="../public/img/borrar.png" alt="editar"></a>
+                    </td>
+                  </tr>
+                  <% }) %>
+              </tbody>
+          </table>
+        </div>
+      
+    <div class="modal">
+        <div class="modal__container">
+            <form action="/save" method="POST" class="form">
+                <h2>NUEVO REGISTRO</h2>
+                <div class="form__group">
+                    <label for="nombre">NOMBRE PRODUCTO</label>
+                    <input type="text" class="nombre" id="nombre" name="nombre" tabindex="1" placeholder="INGRESE NOMBRE">
+                </div>
+                <div class="form__group">
+                    <label for="stock">CANTIDAD</label>
+                    <input type="number" class="stock" id="stock" name="stock" placeholder="EJEMPLO 85">
+                </div>
+                <div class="buttons__modal">
+                    <input type="submit" name="guardar" tabindex="5" value="GUARDAR">
+                    <button class="modal__close">CANCELAR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="modal1">
+      <div class="modal__container1">
+        <% if (nombre) { %>
+          
+          
+                <form action="/update" method="POST" class="form">
+                    <!-- <h2>Editar Registro</h2>
+                    <div class="form__group1">
+                      <label for="stock" class="form-label">Stock:</label>
+                      <input type="number" id="stock" name="stock" value="<%= nombre.stock %>">
+                    </div>
+                    <div class="buttons__modal1">
+                      <input type="submit" name="guardar" tabindex="5" value="GUARDAR">
+                      <button class="modal__close1">CANCELAR</button>
+                  </div> -->
+                  <!--  -->
+                  <input id="id" name="id" value="<%= nombre.id %>" hidden>
+                          <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1" value="<%= nombre.nombre  %>">                        
+                          </div> 
+                  <div class="mb-3">
+                    <h3>Cantidad: <%= nombre.stock %></h3>
+                    <label for="stock" class="form-label">Stock:</label>
+                    <input type="number" id="stock" name="stock">
+                  </div>                                                              
+                  <div class="buttons__modal1">
+                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                  <a href="/indexDos" class="btn btn-secondary">Cancelar</a>
+                  </div>
+                </form>
+            
+        <% } %>
+      </div>
+      
+    </div>
+    
+    
+    
+
+
+  </div>
+</div>
+<script>
+const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('sidemenu');
+
+        btn.addEventListener('click', e =>{
+            menu.classList.toggle('menu-expanded');
+            menu.classList.toggle('menu-collapsed');
+        })
+
+        document.querySelector('body').classList.toggle('body-expanded');
+
+
+    //modal
+    const openModal = document.querySelector('.open__modal');
+    const modal = document.querySelector('.modal');
+    const closeModal = document.querySelector('.modal__close');
+
+    openModal.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('modal--show');
+    })
+
+    closeModal.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.remove('modal--show');
+    })
+    //Modal dos
+    const openModal1 = document.querySelector('.open__modal1');
+    const modal1 = document.querySelector('.modal1');
+    const closeModal1 = document.querySelector('.modal__close1');
+
+    openModal1.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal1.classList.add('modal--show1');
+    })
+
+    closeModal1.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal1.classList.remove('modal--show1');
+    })
+</script>
+</body>
+
+</html>

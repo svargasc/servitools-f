@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+:root{
+    --width: 230px;
+    --padding: 10px;
+    --bgcolor: rgb(11, 10, 10);
+    --hovercolor: rgb(23, 23, 23);
+    --width-collapsed: 60px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: url(../img/back01.jpg);
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: var(--width-collapsed);
+}
+
+#sidemenu{
+    background-color: var(--bgcolor);
+    color: rgb(255, 255, 255);
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#sidemenu a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+/* Header */
+
+#sidemenu #header{
+    box-sizing: border-box;
+    border-bottom: solid 1px var(--hovercolor);
+}
+
+#sidemenu #header #title{
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#sidemenu #header #title span{
+    color: #b78a00;
+    font-weight: 800;
+    font-size: 22px;
+}
+
+#sidemenu #header #title, #sidemenu #header #menu-btn{
+    vertical-align: middle;
+}
+
+#sidemenu #header #menu-btn{
+    display: inline-block;
+}
+
+#sidemenu #header #menu-btn{
+    cursor: pointer;
+    padding: 10px;
+    width: var(--width-collapsed);
+    box-sizing: border-box;
+}
+
+#sidemenu #header #menu-btn:hover{
+    background-color: var(--hovercolor);
+}
+
+#sidemenu #header #menu-btn .btn-burger{
+    background-color: #fff;
+    width: 100%;
+    height: 2px;
+    margin: 5px 0;
+}
+
+
+
+#sidemenu #menu-items{
+    overflow: hidden;
+}
+
+#sidemenu #menu-items .item{
+    width: var(--width);
+}
+
+#sidemenu #menu-items .item .icon{
+    display: inline-block;
+}
+
+#sidemenu #menu-items .item .icon,
+#sidemenu #menu-items .item .title{
+    font-size: 14px;
+    vertical-align: middle;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#sidemenu #menu-items .item a{
+    display: block;
+}
+
+#sidemenu #menu-items .item a:hover{
+    background-color: var(--hovercolor);
+}
+
+#sidemenu #menu-items .item .icon{
+    box-sizing: border-box;
+    padding: var(--padding);
+    width: var(--width-collapsed);
+}
+
+#sidemenu #menu-items .item .icon img{
+    width: 100%;
+}
+
+#sidemenu #menu-items .item .title{
+    padding: var(--padding) 0;
+}
+
+#sidemenu #menu-items .item.separator{
+    height: 1px;
+    border-bottom: solid 1px var(--hovercolor);
+    margin: 15px 0;
+}
+
+.menu-expanded{
+    width: var(--width);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.menu-expanded #header #title{
+    display: inline-block;
+    width: calc(100% - 60px);
+    margin-right: -5px;
+    padding: var(--padding);
+}
+
+.menu-expanded #header #title span{
+    width: calc(var(--width) - var(--width-collapsed) - 5px);
+    overflow: hidden;
+}
+
+.menu-collapsed{
+    width: 60px;
+}
+
+.menu-collapsed #header #title{
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-collapsed .item{
+    width: 100px;
+}
+
+/* --------------------------------------------------- */
+.container {
+    max-width: 1450px;
+    margin: auto;
+}
+
+button {
+    height: 80px;
+    width: 250px;
+    background: none;
+    border-radius: 50px;
+    border: solid;
+    border-width: 5px;
+}
+
+button:hover {
+    box-shadow: 0px 0px 10px;
+    text-shadow: 0px 0px 10px;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 2.6em;
+    font-family: 'Roboto Mono', monospace;
+    color: #b78a00;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2em;
+    font-family: 'Roboto Mono', monospace;
+    color: #677f93;
+}
+
+p {
+    font-size: 1.5em;
+    font-family: 'Roboto Mono', monospace;
+    color: #677f93;
+}
+
+hr {
+    height: 10px;
+    background-color: #677f93;
+    margin: 0;
+}
+
+.section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 856px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
+.section1 .container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.section1 .container .productos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section1 .container .productos img {
+    width: 50%;
+    border: 5px solid #677f93;
+    border-radius: 50%;
+    padding: 1em 1em;
+    background: #677f93;
+    border-color: black;
+    margin-bottom: 5%;
+}
+
+.section1 .container .productos img:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #677f93;
+}
+
+.section1 .container .productos button {
+    border-color: #677f93;
+}
+
+.section1 .container .productos button a{
+    color: #677f93;
+    font-size: 1.4rem;
+}
+
+.section1 .container .inventario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.section1 .container .inventario img {
+    width: 50%;
+    border: 5px solid #b78a00;
+    border-radius: 50%;
+    border-color: black;
+    padding: 1em 1em;
+    background: #b78a00;
+    margin-bottom: 5%;
+}
+
+.section1 .container .inventario button {
+    border-color: #b78a00;
+    font-size: 1.4rem;
+}
+
+.section1 .container .inventario button a{
+    color: #b78a00;
+}
+
+.section1 .container .inventario img:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #b78a00;
+}
+
+button a{
+    text-decoration: none;
+}
+
+footer {
+    height: 7vh;
+    background-color: rgba(0, 0, 0, 0.80);
+}
+
+footer .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .container p {
+    color: #b78a00;
+    margin: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+
+/*Media Querys*/
+@media screen and (max-width: 480px){
+    .menu-expanded{
+        width: 100%;
+    }
+    .menu-expanded #menu-items{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .section1{
+        min-height: 775px;
+    }
+    .section1 .container {
+        display: block;
+        width: 100%;
+    }
+    .section1 .container .productos img, .section1 .container .inventario img {
+        width: 30%;
+    }
+    .section1 .container .productos button {
+        margin-bottom: 8%;
+    }
+    footer .container p {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Añadir productos</title>
+  <link rel="stylesheet" href="../public/css/subirProductos.css">
+</head>
+
+<body>
+    <div id="sidemenu" class="menu-collapsed">
+        <div id="header">
+            <div id="title"><span>ServiTools</span></div>
+            <div id="menu-btn">
+                <div class="btn-burger"></div>
+                <div class="btn-burger"></div>
+                <div class="btn-burger"></div>
+            </div>
+        </div>
+        <!-- Items -->
+        <div id="menu-items">
+            <%if (usuario) { %>
+                <div class="item">
+                        <a href="/seleccion">
+                            <div class="icon"><img src="../public/img/configuraciones.png" alt=""></div>
+                            <div class="title"><span>Opciones</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %> 
+            <%if (usuario) { %>
+                <div class="item">
+                        <a href="/upload">
+                            <div class="icon"><img src="../public/img/caja.png" alt=""></div>
+                            <div class="title"><span>Productos</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %> 
+            <%if (usuario) { %>
+                <div class="item">
+                        <a href="/">
+                            <div class="icon"><img src="../public/img/usuario.png" alt=""></div>
+                            <div class="title"><span><%=  usuario  %></span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %> 
+            <%if (usuario) { %>
+                <div class="item">
+                        <a class="nav-link" href="/logout">
+                            <div class="icon"><img src="../public/img/cerrar-sesion.png" alt=""></div>
+                            <div class="title"><span>Salir</span></div>
+                        </a>
+                </div>
+                <div class="item separator"></div>
+            <% } %>
+        </div>
+    </div>
+  <section class="section1">
+    <div class="formu">
+        <div class="container">
+            <form action="/upload" method="post" enctype="multipart/form-data" class="form">
+                <h2 class="form__title">Agregar productos:</h2>
+                <div class="form__group">    
+                    <input name="name" type="text" id="usuario" class="form__input" placeholder="Nombre del producto:" required>
+                </div>
+            
+                <div class="form__group">    
+                    <input name="price" type="text" id="Contraseña" class="form__input" placeholder="Precio del producto:" required>
+                    <span class="form_line"></span>
+                </div>
+                <div class="form__group">    
+                    <input name="details" type="text" id="Contraseña" class="form__input" placeholder="Descripción:" required>
+                    <span class="form_line"></span>
+                </div>
+                <div class="form__group">
+                    <div class="form__addFile">     
+                        <p>Añadir archivo</p>
+                        <input type="file" name="image" id="form__file" >   
+                    </div> 
+                </div>
+                <div class="form_group">          
+                    <input type="submit" class="form__submit" value="Añadir producto">   
+                </div> 
+            </form>
+        </div>
+    </div>
+</section>
+<div class="clear">
+    <hr>
+</div>
+<footer>
+    <div class="container">
+        <p>copyright 2023 &#169 ServiTools</p>
+    </div>
+</footer>
+<script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('sidemenu');
+
+    btn.addEventListener('click', e =>{
+        menu.classList.toggle('menu-expanded');
+        menu.classList.toggle('menu-collapsed');
+    })
+
+    document.querySelector('body').classList.toggle('body-expanded');
+</script>
+</body>
+
+</html>

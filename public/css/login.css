@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root{
+    --width: 230px;
+    --padding: 10px;
+    --bgcolor: rgb(11, 10, 10);
+    --hovercolor: rgb(23, 23, 23);
+    --width-collapsed: 60px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: url(../img/image.png);
+    font-size: 18px;
+    font-family: sans-serif;
+    margin-left: var(--width-collapsed);
+}
+
+#sidemenu{
+    background-color: var(--bgcolor);
+    color: rgb(255, 255, 255);
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#sidemenu a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+/* Header */
+
+#sidemenu #header{
+    box-sizing: border-box;
+    border-bottom: solid 1px var(--hovercolor);
+}
+
+#sidemenu #header #title{
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#sidemenu #header #title span{
+    color: #b78a00;
+    font-weight: 800;
+    font-size: 22px;
+}
+
+#sidemenu #header #title, #sidemenu #header #menu-btn{
+    vertical-align: middle;
+}
+
+#sidemenu #header #menu-btn{
+    display: inline-block;
+}
+
+#sidemenu #header #menu-btn{
+    cursor: pointer;
+    padding: 10px;
+    width: var(--width-collapsed);
+    box-sizing: border-box;
+}
+
+#sidemenu #header #menu-btn:hover{
+    background-color: var(--hovercolor);
+}
+
+#sidemenu #header #menu-btn .btn-burger{
+    background-color: #fff;
+    width: 100%;
+    height: 2px;
+    margin: 5px 0;
+}
+
+
+
+#sidemenu #menu-items{
+    overflow: hidden;
+}
+
+#sidemenu #menu-items .item{
+    width: var(--width);
+}
+
+#sidemenu #menu-items .item .icon{
+    display: inline-block;
+}
+
+#sidemenu #menu-items .item .icon,
+#sidemenu #menu-items .item .title{
+    font-size: 14px;
+    vertical-align: middle;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#sidemenu #menu-items .item a{
+    display: block;
+}
+
+#sidemenu #menu-items .item a:hover{
+    background-color: var(--hovercolor);
+}
+
+#sidemenu #menu-items .item .icon{
+    box-sizing: border-box;
+    padding: var(--padding);
+    width: var(--width-collapsed);
+}
+
+#sidemenu #menu-items .item .icon img{
+    width: 100%;
+}
+
+#sidemenu #menu-items .item .title{
+    padding: var(--padding) 0;
+}
+
+#sidemenu #menu-items .item.separator{
+    height: 1px;
+    border-bottom: solid 1px var(--hovercolor);
+    margin: 15px 0;
+}
+
+.menu-expanded{
+    width: var(--width);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.menu-expanded #header #title{
+    display: inline-block;
+    width: calc(100% - 60px);
+    margin-right: -5px;
+    padding: var(--padding);
+}
+
+.menu-expanded #header #title span{
+    width: calc(var(--width) - var(--width-collapsed) - 5px);
+    overflow: hidden;
+}
+
+.menu-collapsed{
+    width: 60px;
+}
+
+.menu-collapsed #header #title{
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-collapsed .item{
+    width: 100px;
+}
+
+/* --------------------------------------------------- */
+.container {
+    max-width: 1450px;
+    margin: auto;
+}
+
+button {
+    height: 80px;
+    width: 250px;
+    background: none;
+    border-radius: 50px;
+    border: solid;
+    border-width: 5px;
+}
+
+button:hover {
+    box-shadow: 0px 0px 10px;
+    text-shadow: 0px 0px 10px;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 2.3em;
+    font-family: 'Roboto Mono', monospace;
+    color: #b78a00;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-family: 'Roboto Mono', monospace;
+    color: #677f93;
+}
+
+p {
+    font-size: 1.3em;
+    font-family: 'Roboto Mono', monospace;
+    color: #677f93;
+}
+
+hr {
+    height: 10px;
+    background-color: #677f93;
+    margin: 0;
+}
+
+.formu {
+    background-color: rgba(0, 0, 0, 0.50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 856px;
+}
+
+.formu .container {
+    width: 30%;
+    height: 65%;
+    border: 5px solid #677f93;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0/ 30%);
+    text-align: center;
+    width: 90%;
+    height: 100%;
+
+}
+
+.form__title {
+    font-size: 2rem;
+    margin: 0;
+    margin-bottom: .5em;
+    padding-top: .5em;
+    color: #b78a00;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.form__input {
+    width: 100%;
+    background: none;
+    color: #706c6c;
+    font-size: 1rem;
+    padding: 0.6em 0.3em;
+    border: none;
+    outline: none;
+    border-bottom: 5px solid var(--color);
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.form__input:not(:placeholder-shown) {
+    color: #4d4646;
+}
+
+.form_input:focus+.form_label,
+.form_input:not(:placeholder-shown)+.form_label {
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: #3866f2
+}
+
+.form__submit {
+    background: none;
+    border: 5px solid #b78a00;
+    width: 120px;
+    color: #b78a00;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 900;
+    font-size: 1rem;
+    padding: .8em 0;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.form__submit:hover {
+    box-shadow: 0px 0px 10px;
+    text-shadow: 0px 0px 10px;
+    cursor: pointer;
+}
+
+.form__group {
+    position: relative;
+    --color: #677f93;
+    padding-bottom: 15px;
+}
+
+footer {
+    height: 7vh;
+    background-color: rgba(0, 0, 0, 0.80);
+}
+
+footer .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .container p {
+    color: #b78a00;
+    margin: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.alert{
+    text-align: center;
+    color: #fa777c;
+    font-size: 0.63em;
+    margin: 0;
+    font-weight: 700;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.alert span{
+    font-style: italic;
+    font-weight:500;
+}
+
+
+/* Media querys */
+
+@media screen and (max-width: 480px){
+    #sidemenu{
+        z-index: 1;
+    }
+    .menu-expanded{
+        width: 100%;
+    }
+    .menu-expanded #menu-items{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .formu .container {
+        width: 80%;
+        height: 40%;
+        margin: 0;
+    }
+    .formu {
+        height: 774px;
+    }
+    footer .container p {
+        font-size: 18px;
+    }
+}
