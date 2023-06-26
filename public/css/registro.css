@@ -15,7 +15,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: url(../img/image.png);
+    background: url(../img/back01.jpg);
     font-size: 18px;
     font-family: sans-serif;
     margin-left: var(--width-collapsed);

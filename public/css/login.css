@@ -15,7 +15,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: url(../img/image.png);
+    background: url(../img/back01.jpg);
     font-size: 18px;
     font-family: sans-serif;
     margin-left: var(--width-collapsed);
@@ -217,10 +217,12 @@ hr {
 
 .formu .container {
     width: 30%;
-    height: 65%;
+    height: 45%;
     border: 5px solid #677f93;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
 }
 
 .form {
@@ -229,8 +231,6 @@ hr {
     box-shadow: 0 5px 10px -5px rgb(0 0 0/ 30%);
     text-align: center;
     width: 90%;
-    height: 100%;
-
 }
 
 .form__title {
@@ -316,7 +316,7 @@ footer .container p {
     text-align: center;
     color: #fa777c;
     font-size: 0.63em;
-    margin: 0;
+    margin: 4%;
     font-weight: 700;
     font-family: 'Roboto Mono', monospace;
 }
@@ -344,7 +344,7 @@ footer .container p {
     }
     .formu .container {
         width: 80%;
-        height: 40%;
+        height: 50%;
         margin: 0;
     }
     .formu {
