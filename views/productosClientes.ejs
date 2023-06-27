@@ -21,7 +21,7 @@
         </div>
         <!-- Items -->
         <div id="menu-items">
-            <%if (usuario) { %>
+            <%if (!usuario) { %>
                 <div class="item">
                         <a href="/">
                             <div class="icon"><img src="../public/img/usuario.png" alt=""></div>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="item separator"></div>
             <% } %> 
-            <%if (usuario) { %>
+            <%if (!usuario) { %>
                 <div class="item">
                         <a class="nav-link" href="/logout">
                             <div class="icon"><img src="../public/img/cerrar-sesion.png" alt=""></div>
@@ -117,6 +117,18 @@
     </footer>
 
     <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('sidemenu');
+
+        btn.addEventListener('click', e =>{
+            menu.classList.toggle('menu-expanded');
+            menu.classList.toggle('menu-collapsed');
+        })
+
+        document.querySelector('body').classList.toggle('body-expanded');
+
+
+        //Buscador
         document.addEventListener("keyup", e => {
 
 if (e.target.matches("#buscador")) {

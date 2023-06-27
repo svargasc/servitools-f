@@ -432,6 +432,10 @@ button {
     background: rgba(255, 255, 255, 0.471);
     color: #000000;
 }
+.cont table tr.trNoHover:hover{
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.0);
+}
 
 
 /* Media querys */
